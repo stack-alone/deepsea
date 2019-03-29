@@ -7,15 +7,15 @@ dnl without editing.
 
 dnl If your extension references something external, use with:
 
-dnl PHP_ARG_WITH(deepsea, for deepsea support,
+PHP_ARG_WITH(deepsea, for deepsea support,
 dnl Make sure that the comment is aligned:
-dnl [  --with-deepsea             Include deepsea support])
+	[  --with-deepsea             Include deepsea support])
 
 dnl Otherwise use enable:
 
-dnl PHP_ARG_ENABLE(deepsea, whether to enable deepsea support,
+PHP_ARG_ENABLE(deepsea, whether to enable deepsea support,
 dnl Make sure that the comment is aligned:
-dnl [  --enable-deepsea           Enable deepsea support])
+	[  --enable-deepsea           Enable deepsea support])
 
 if test "$PHP_DEEPSEA" != "no"; then
   dnl Write more examples of tests here...
@@ -59,5 +59,7 @@ if test "$PHP_DEEPSEA" != "no"; then
   dnl
   dnl PHP_SUBST(DEEPSEA_SHARED_LIBADD)
 
-  PHP_NEW_EXTENSION(deepsea, deepsea.c, $ext_shared,, -DZEND_ENABLE_STATIC_TSRMLS_CACHE=1)
+  PHP_NEW_EXTENSION(deepsea,
+  		 deepsea.c 	 \
+  		 deepsea_cpu.c, $ext_shared)
 fi

@@ -27,9 +27,10 @@
 #include "ext/standard/info.h"
 #include "php_deepsea.h"
 
-/* If you declare any globals in php_deepsea.h uncomment this:
+//#include "deepsea_cpu.h"
+
+/* If you declare any globals in php_deepsea.h uncomment this: */
 ZEND_DECLARE_MODULE_GLOBALS(deepsea)
-*/
 
 /* True global resources - no need for thread safety here */
 static int le_deepsea;
@@ -91,6 +92,7 @@ PHP_MINIT_FUNCTION(deepsea)
 	/* If you have INI entries, uncomment these lines
 	REGISTER_INI_ENTRIES();
 	*/
+	DEEP_STARTUP(deepsea);
 	return SUCCESS;
 }
 /* }}} */
