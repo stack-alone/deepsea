@@ -27,7 +27,7 @@
 #include "ext/standard/info.h"
 #include "php_deepsea.h"
 
-//#include "deepsea_cpu.h"
+#include "deepsea_cpu.h"
 
 /* If you declare any globals in php_deepsea.h uncomment this: */
 ZEND_DECLARE_MODULE_GLOBALS(deepsea)
@@ -73,6 +73,10 @@ PHP_FUNCTION(confirm_deepsea_compiled)
    follow this convention for the convenience of others editing your code.
 */
 
+PHP_FUNCTION(hello)
+{
+	php_printf("aaaaaaaaaaaaa");
+}
 
 /* {{{ php_deepsea_init_globals
  */
@@ -149,6 +153,7 @@ PHP_MINFO_FUNCTION(deepsea)
  */
 const zend_function_entry deepsea_functions[] = {
 	PHP_FE(confirm_deepsea_compiled,	NULL)		/* For testing, remove later. */
+	PHP_FE(hello,	NULL)
 	PHP_FE_END	/* Must be the last line in deepsea_functions[] */
 };
 /* }}} */
